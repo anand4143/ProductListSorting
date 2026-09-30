@@ -31,7 +31,7 @@ function App() {
 
         setLoading(true);
         setError("");
-        const URL = `https://fakestoreapi.com/products?sor${sortOrder}`;
+        const URL = `https://fakestoreapi.com/products?sort=${sortOrder}`;
         console.log("URL: ", URL);
         const response = await fetch(URL);
         if(!response.ok){
@@ -55,7 +55,7 @@ function App() {
   const handleSortOrder = (
     event: React.ChangeEvent<HTMLSelectElement>
   ) => {
-    setSortOrder(event.target.value as SortOrder)
+     setSortOrder(event.target.value as SortOrder);
   };
 
   return (
@@ -94,6 +94,7 @@ function App() {
 
               <img src={product.image} alt={product.title} width="60" />
               <h3>{product.title}</h3>
+              <p>{product.description}</p>
               <p>
                 <strong>
                 Price: {product.price}
